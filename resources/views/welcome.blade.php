@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>Vue.js CRUD - Just Laravel</title>
+<title>App Crud - Vue.js - Laravel</title>
 
 <!-- Fonts -->
 <link rel="stylesheet"
