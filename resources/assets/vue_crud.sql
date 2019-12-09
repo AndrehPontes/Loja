@@ -6,6 +6,7 @@ CREATE TABLE `vueCrudData` (
   `name` varchar(20) NOT NULL,
   `age` int(11) NOT NULL,
   `profession` varchar(50) NOT NULL,
+  `cpf` int(14) NOT NULL,
   PRIMARY KEY (`id`)
 );
 

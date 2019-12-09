@@ -42,7 +42,7 @@ html, body {
 }
 
 .content {
-/*  text-align: center; */
+    padding-top:10%;
 }
 
 .title {
@@ -71,7 +71,7 @@ html, body {
 }
 
 .modal-container {
-  width: 300px;
+  width: 500px;
   margin: 0px auto;
   padding: 20px 30px;
   background-color: #fff;
@@ -89,53 +89,103 @@ html, body {
 .modal-body {
   margin: 20px 0;
 }
+#box-modal{
+  display:flex;
+}
+
+#box-modal-02 {
+    margin-left: 50px;
+}
+
 </style>
 </head>
 <body>
     <div class="flex-center position-ref full-height">
         <div id="vue-wrapper">
-            <div class="content">
-                <!-- <div class="form-group row"> -->
-                    <!-- <div class="col-md-8"> -->
-                        
-                        
-                        
+            <div class="content">  
                   <div class="form-group">
-                    <label for="name">Name:</label>
+                    <label for="name">Nome:</label>
                     <input type="text" class="form-control" id="name" name="name" 
-                        required v-model="newItem.name" placeholder=" Enter some name">
+                        required v-model="newItem.name" placeholder=" Escreva seu nome">
                   </div>
                   <div class="form-group">
-                    <label for="age">Age:</label>
+                    <label for="age">Idade:</label>
                     <input type="number" class="form-control" id="age" name="age" 
-                        required v-model="newItem.age" placeholder=" Enter your age">
+                        required v-model="newItem.age" placeholder=" Informe sua idade">
                   </div>
                   <div class="form-group">
-                    <label for="profession">Profession:</label>
+                    <label for="profession">Profissão:</label>
                     <input type="text" class="form-control" id="profession" name="profession"
-                        required v-model="newItem.profession" placeholder=" Enter your profession">
+                        required v-model="newItem.profession" placeholder=" Informe o nome da sua profissão">
                   </div>
-
+                  <div class="form-group">
+                    <label for="cpf">Cpf:</label>
+                    <input type="text" class="form-control" id="cpf" name="cpf"
+                        required v-model="newItem.cpf" placeholder=" Enter your cpf">
+                  </div>
+                  <div class="form-group">
+                    <label for="nac">Nascimento:</label>
+                    <input type="text" class="form-control" id="nac" name="nac"
+                        required v-model="newItem.nac" placeholder=" Informe sua data de nascimento">
+                  </div>
+                  <div class="form-group">
+                    <label for="email">E-mail:</label>
+                    <input type="text" class="form-control" id="email" name="email"
+                        required v-model="newItem.email" placeholder=" Informe seu e-mail">
+                  </div>
+                  <div class="form-group">
+                    <label for="fone">Telefone:</label>
+                    <input type="text" class="form-control" id="fone" name="fone"
+                        required v-model="newItem.fone" placeholder=" Digite seu telefone">
+                  </div>
+                  <div class="form-group">
+                    <label for="cep">Cep:</label>
+                    <input type="text" class="form-control" id="cep" name="cep"
+                        required v-model="newItem.cep" placeholder=" Digite seu cep">
+                  </div>
+                  <div class="form-group">
+                    <label for="end">Endereço:</label>
+                    <input type="text" class="form-control" id="end" name="end"
+                        required v-model="newItem.end" placeholder=" Informe seu endereço">
+                  </div>
+                  <div class="form-group">
+                    <label for="cidade">Cidade:</label>
+                    <input type="text" class="form-control" id="cidade" name="cidade"
+                        required v-model="newItem.cidade" placeholder=" Informe sua cidade">
+                  </div>
+                  <div class="form-group">
+                    <label for="estado">Estado:</label>
+                    <input type="text" class="form-control" id="estado" name="estado"
+                        required v-model="newItem.estado" placeholder=" Informe seu estado">
+                  </div>
                  <button class="btn btn-primary" @click.prevent="createItem()" id="name" name="name">
-                    <span class="glyphicon glyphicon-plus"></span> ADD
+                    <span class="glyphicon glyphicon-plus"></span> ADICIONAR
                  </button>
 
                 <p class="text-center alert alert-danger"
-                    v-bind:class="{ hidden: hasError }">Please fill all fields!</p>
+                    v-bind:class="{ hidden: hasError }">Por favor preencha todos os campos!</p>
                     <p class="text-center alert alert-danger"
-                    v-bind:class="{ hidden: hasAgeError }">Please enter a valid age!</p>
+                    v-bind:class="{ hidden: hasAgeError }">Digite uma idade válida!</p>
                 {{ csrf_field() }}
                 <p class="text-center alert alert-success"
-                    v-bind:class="{ hidden: hasDeleted }">Deleted Successfully!</p>
+                    v-bind:class="{ hidden: hasDeleted }">Deletado com sucesso!</p>
                 <div class="table table-borderless" id="table">
                     <table class="table table-borderless" id="table">
                         <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>Name</th>
-                                <th>Age</th>
-                                <th>Profession</th>
-                                <th>Actions</th>
+                                <th>Nome</th>
+                                <th>Idade</th>
+                                <th>Profissão</th>
+                                <th>Cpf</th>
+                                <th>Data</th>
+                                <th>E-mail</th>
+                                <th>Fone</th>
+                                <th>Cep</th>
+                                <th>Endereço</th>
+                                <th>Cidade</th>
+                                <th>Estado</th>
+                                <th>Ações</th>
                             </tr>
                         </thead>
                         <tr v-for="item in items">
@@ -143,8 +193,16 @@ html, body {
                             <td>@{{ item.name }}</td>
                             <td>@{{ item.age }}</td>
                             <td>@{{ item.profession }}</td>
+                            <td>@{{ item.cpf }}</td>
+                            <td>@{{ item.nac }}</td>
+                            <td>@{{ item.email }}</td>
+                            <td>@{{ item.fone }}</td>
+                            <td>@{{ item.cep }}</td>
+                            <td>@{{ item.end }}</td>
+                            <td>@{{ item.cidade }}</td>
+                            <td>@{{ item.estado }}</td>
                             
-                            <td id="show-modal" @click="showModal=true; setVal(item.id, item.name, item.age, item.profession)"  class="btn btn-info" ><span
+                            <td id="show-modal" @click="showModal=true; setVal(item.id, item.name, item.age, item.profession, item.cpf, item.nac, item.email, item.fone, item.cep, item.end, item.cidade, item.estado)"  class="btn btn-info" ><span
                             class="glyphicon glyphicon-pencil"></span></td>
                             <td @click.prevent="deleteItem(item)" class="btn btn-danger"><span
                                 class="glyphicon glyphicon-trash"></span></td>
@@ -154,7 +212,8 @@ html, body {
                 <modal v-if="showModal" @close="showModal=false">
                     <h3 slot="header">Edit Item</h3>
                     <div slot="body">
-                        
+                  <div id="box-modal">
+                    <div id ="box-modal-01">             
                         <input type="hidden" disabled class="form-control" id="e_id" name="id"
                                 required  :value="this.e_id">
                         Name: <input type="text" class="form-control" id="e_name" name="name"
@@ -163,9 +222,34 @@ html, body {
                         required  :value="this.e_age">
                         Profession: <input type="text" class="form-control" id="e_profession" name="profession"
                         required  :value="this.e_profession">
+
+                        Cpf: <input type="text" class="form-control" id="e_cpf" name="cpf"
+                        required  :value="this.e_cpf">
                         
-                      
-                    </div>
+                        Nascimento: <input type="text" class="form-control" id="e_nac" name="nac"
+                        required  :value="this.e_nac">
+                   </div>
+
+                   <div id ="box-modal-02">    
+                        E-mail: <input type="text" class="form-control" id="e_email" name="email"
+                        required  :value="this.e_email">
+
+                        Telefone: <input type="text" class="form-control" id="e_fone" name="fone"
+                        required  :value="this.e_fone">
+
+                        Cep: <input type="text" class="form-control" id="e_cep" name="cep"
+                        required  :value="this.e_cep">
+
+                        Endereço: <input type="text" class="form-control" id="e_end" name="end"
+                        required  :value="this.e_end">
+
+                        Cidade: <input type="text" class="form-control" id="e_cidade" name="cidade"
+                        required  :value="this.e_cidade">
+
+                        Estado: <input type="text" class="form-control" id="e_estado" name="estado"
+                        required  :value="this.e_estado">
+                   </div>
+                </div> 
                     <div slot="footer">
                         <button class="btn btn-default" @click="showModal = false">
                         Cancel
@@ -175,6 +259,7 @@ html, body {
                         Update
                       </button>
                     </div>
+                  </div>  
                 </modal>
             </div>
         </div>
